@@ -2,13 +2,12 @@ __author__ = 'Kevin'
 
 import matplotlib.pyplot as plt
 from osgeo import ogr
-from sklearn.neighbors import KernelDensity
-from scipy.stats import norm
+#from sklearn.neighbors import KernelDensity
+#from scipy.stats import norm
 import numpy as np
 import pickle
 
-
-'''streets = ogr.Open('SQLExecutor_Result_line.shp', update = 1)
+streets = ogr.Open('data/osm_roads_ovl_streetsRace.shp', update = 1)
 streetsLayer = streets.GetLayer()
 
 features = [[],[],[],[],[],[],[]]
@@ -16,15 +15,15 @@ keys = []
 for feature in streetsLayer:
     #keys.append(feature.GetField('osm_id'))
     #for i, field in enumerate(['6_top', '6_bottom', '7_top', '7_bottom', '5_top', '5_bottom', 'speed_b']):
-    for i, field in enumerate(['speed_b']):
+    for i, field in enumerate(['speed_race']):
         out = feature.GetField(field)
         if out == None:
             features[i].append(0)
         else:
             features[i].append(out)
 
-#pickle.dump( features, open( "features.p", "wb" ) )'''
-features = pickle.load(open( "features.p", "rb" ))
+#pickle.dump( features, open( "features.p", "wb" ) )
+#features = pickle.load(open( "features.p", "rb" ))
 
 print "features read"
 
